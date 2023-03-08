@@ -2,3 +2,4 @@
 listit lists the file in the dir
  2-bring_me_home brings you to home dirctory
  Listfiles to list longformat
+listmorefiles to get show more sneaky files

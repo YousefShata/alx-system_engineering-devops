@@ -1,2 +1,3 @@
  First file 0-current_working_directory got command to display the path of a file 
 listit lists the file in the dir
+ 2-bring_me_home brings you to home dirctory

@@ -4,3 +4,4 @@ listit lists the file in the dir
  Listfiles to list longformat
 listmorefiles to get show more sneaky files
  firstdirctory file allow you to create a dir in /tmp
+movethatfile Moves the fily betty from tmp to tmp/my_first_directory

@@ -10,3 +10,5 @@ fistdirdeletion Removes my_first_directory from tmp
 back file allows you to change the working directory to the previous one
 lists Display long format for the current dir and it parent and boot
 filt_type check what type thisisafile is in tmp
+symoblic_link make a ling between the directory and bin/ls
+copy_html Copy all the html file to the parent only if it exist or it is newer 

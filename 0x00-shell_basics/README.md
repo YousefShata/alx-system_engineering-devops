@@ -5,3 +5,4 @@ listit lists the file in the dir
 listmorefiles to get show more sneaky files
  firstdirctory file allow you to create a dir in /tmp
 movethatfile Moves the fily betty from tmp to tmp/my_first_directory
+firstdelete Remove the file betty from my_first_directory

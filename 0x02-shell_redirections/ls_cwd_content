@@ -16,3 +16,6 @@ drwxr-xr-x 6 root root  121 Mar 13 16:38 ..
 -rw-r--r-- 1 root root    0 Mar 13 21:48 ls_cwd_content
 -rw-r--r-- 1 root root   35 Mar 13 16:39 README.md
 -rw-r--r-- 1 root root    0 Mar 13 21:20 \\s\ls
+tail -n 1
+tail -n 1
+tail -n 1

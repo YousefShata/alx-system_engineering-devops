@@ -1,2 +1,2 @@
 #!/bin/bash
-sort -g -t : -k 5/etc/passwd
+sort -g -t : -k 5 /etc/passwd

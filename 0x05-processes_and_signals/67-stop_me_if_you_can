@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# omywa mo shidnero
+pkill -f 7-highlander

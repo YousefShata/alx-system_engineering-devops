@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# all process without ps
+pgrep -l bash

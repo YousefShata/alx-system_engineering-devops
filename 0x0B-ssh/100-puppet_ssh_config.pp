@@ -1,10 +1,10 @@
 #config
 
-file { '~/.ssh/config':
+file { '/root/.ssh/config':
 ensure  => present,
 content => "
 Host 54.160.106.244
-	IdentityFile ~/.ssh/school
+	IdentityFile /root/.ssh/school
 	PreferredAuthentications publickey
 	PasswordAuthentication no
 ",

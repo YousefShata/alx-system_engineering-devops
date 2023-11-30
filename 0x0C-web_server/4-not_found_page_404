@@ -6,10 +6,15 @@ sudo sh -c 'echo "Hello World!" > /var/www/html/index.nginx-debian.html'
 sudo sed -i '53r /dev/stdin' /etc/nginx/sites-enabled/default <<< "        location /redirect_me {
                  return 301 https://www.youtube.com/watch?v=3lFkDc6dFoY;
         }"
+
+# Create custom 404.html with the required string
 sudo echo "Ceci n'est pas une page" | sudo tee /var/www/html/custom_404.html
+
+# Add custom 404 configuration block
 sudo sed -i '53r /dev/stdin' /etc/nginx/sites-enabled/default <<< "        error_page 404 /custom_404.html;
         location = /custom_404.html {
                  root /var/www/html;
                  internal;
+                 return 404 'Ceci n'est pas une page';
         }"
 service nginx start

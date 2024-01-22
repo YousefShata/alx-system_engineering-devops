@@ -3,7 +3,7 @@
 file { '/root/.ssh/config':
   ensure  => 'present',
   content => "
-Host 54.160.106.244
+Host 100.25.28.104
     IdentityFile /root/.ssh/school
     PreferredAuthentications publickey
     PasswordAuthentication no",

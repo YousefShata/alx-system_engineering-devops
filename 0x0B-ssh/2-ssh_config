@@ -1,0 +1,9 @@
+Host github.com
+     AddKeysToAgent Yes
+     User YousefShata
+     IdentityFile /root/.ssh/id_rsa
+
+Host 100.25.28.104
+    IdentityFile ~/.ssh/school
+    PreferredAuthentications publickey
+    PasswordAuthentication no

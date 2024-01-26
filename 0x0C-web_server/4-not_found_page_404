@@ -1,15 +1,11 @@
 #!/usr/bin/env bash
-# Docs
-sudo apt-get update -y
-sudo apt-get install -y nginx
-sudo echo "Hello World!" | sudo tee /var/www/html/index.html
-sudo sed -i '53r /dev/stdin' /etc/nginx/sites-enabled/default <<< "        location /redirect_me {
-                 return 301 https://www.youtube.com/watch?v=3lFkDc6dFoY;
-        }"
-sudo echo "Ceci n'est pas une page" | sudo tee /var/www/html/custom_404.html
-sudo sed -i '53r /dev/stdin' /etc/nginx/sites-enabled/default <<< "        error_page 404 /custom_404.html;
-        location = /custom_404.html {
-                 root /var/www/html;
-                 internal;
-        }"
+#install nginx in server and listen to file where it say Hello world
+sudo apt-get update
+sudo apt-get -y install nginx
+sudo sh -c 'echo "Hello World!" > /var/www/html/index.nginx-debian.html'
+redirect="\n\tlocation /redirect_me {\n\treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}\n"
+sudo sed -i "53s|.*|$redirect|" /etc/nginx/sites-enabled/default
+custom_404_config="\n\terror_page 404 /custom_404.html;\n\tlocation = /custom_404.html {\n\t\troot /var/www/html;\n\t\tinternal;\n\t}"
+sudo sed -i "s|#error_page 404 /404.html;|$custom_404_config|" /etc/nginx/sites-enabled/default
+sudo sh -c 'echo "Ceci n'\''est pas une page" > /var/www/html/custom_404.html'
 sudo service nginx restart

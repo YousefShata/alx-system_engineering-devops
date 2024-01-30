@@ -1,0 +1,9 @@
+#!/bin/bash
+# Update the package repository
+sudo apt-get update -y
+sudo apt-get install -y haproxy
+sudo cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.backup
+sudo sh -c 'echo -e "frontend webfront\n\tbind *:80\n\tmode http\n\tdefault_backend web-backend\n\nbackend web-backend\n\tbalance roundrobin\n\tserver web-01 [STUDENT_ID]-web-01:80 check\n\tserver web-02 [STUDENT_ID]-web-02:80 check\n" > /etc/haproxy/haproxy.cfg'
+sudo haproxy -c -f /etc/haproxy/haproxy.cfg
+sudo service haproxy restart
+sudo systemctl enable haproxy

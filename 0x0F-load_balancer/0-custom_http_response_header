@@ -8,7 +8,10 @@ sudo sed -i "53s|.*|$redirect|" /etc/nginx/sites-enabled/default
 custom_404_config="\n\terror_page 404 /custom_404.html;\n\tlocation = /custom_404.html {\n\t\troot /var/www/html;\n\t\tinternal;\n\t}"
 sudo sed -i "s|#error_page 404 /404.html;|$custom_404_config|" /etc/nginx/sites-enabled/default
 sudo sh -c 'echo "Ceci n'\''est pas une page" > /var/www/html/custom_404.html'
-custom_header_config="\n\tadd_header X-Served-By \$host;"
+custom_header_config="\n\tadd_header X-Served-By \$hostname;"
+if ! grep -q "server_name _;" /etc/nginx/sites-enabled/default; then
+    sudo sed -i '/server_name _;/!s|.*|&\n\ \ \ \ server_name _;|' /etc/nginx/sites-enabled/default
+fi
 sudo sed -i "/server_name _;/a\\$custom_header_config" /etc/nginx/sites-enabled/default
 
 sudo service nginx restart

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Update the package repository
 sudo apt-get update -y
 sudo apt-get install -y haproxy

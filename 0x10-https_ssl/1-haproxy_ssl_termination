@@ -19,7 +19,7 @@ defaults
 
 frontend http-in
     bind *:80
-    bind *:443 ssl crt /etc/haproxy/cers/www.shata.tech/fullchain.pem
+    bind *:443 ssl crt /etc/letsencrypt/live/www.shata.tech/fullchain.pem
     redirect scheme https if !{ ssl_fc }
     default_backend servers
 

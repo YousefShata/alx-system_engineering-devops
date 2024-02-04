@@ -3,7 +3,8 @@
 sites="/etc/nginx/sites-enabled"
 
 if ! grep -q -E "listen 80(;|$)" "$sites"/* && grep -q "listen 80[^0-9]" "$sites"/*; then
-    sed -i '/server {/ a \        listen 80;' "$sites"/*
+    sed -i '/server {/ a \        listen 80 default_server;' "$sites"/*
+    sed -i '/server {/ a \        listen [::]:80 default_server;' "$sites"/*
     sed -i '/server {/ a \        root /usr/share/nginx/html;' "$sites"/*
     sed -i '/server {/ a \        index index.html index.html;' "$sites"/*
     sed -i '/server {/ a \        server_name localhost;' "$sites"/*

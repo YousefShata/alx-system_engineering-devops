@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+#enable listining to site 80
 sites="/etc/nginx/sites-enabled"
 
 if ! grep -q -E "listen 80(;|$)" "$sites"/* && grep -q "listen 80[^0-9]" "$sites"/*; then

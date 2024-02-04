@@ -2,7 +2,7 @@
 #enable listining to site 80
 sites="/etc/nginx/sites-enabled"
 
-if ! grep -q -E "listen 80(;|$)" "$sites"/* && grep -q "listen 80[^0-9]" "$sites"/*; then
+if grep -q -E "listen 80(;|$)" "$sites"/* && grep -q "listen 80[^0-9]" "$sites"/*; then
     sed -i '/server {/ a \        listen 80 default_server;' "$sites"/*
     sed -i '/server {/ a \        listen [::]:80 default_server;' "$sites"/*
     sed -i '/server {/ a \        root /var/www/html;' "$sites"/*

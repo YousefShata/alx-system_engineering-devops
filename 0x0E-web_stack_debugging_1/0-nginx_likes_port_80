@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 #enable listining to site 80
 
-sites="/etc/nginx/sites-enabled/default"
-
 config="
 server {
 	listen 80 default_server;
@@ -16,5 +14,5 @@ server {
 
 }
 "
-echo "$config" > sites
+echo "$config" > /etc/nginx/sites-enabled/default
 service nginx restart

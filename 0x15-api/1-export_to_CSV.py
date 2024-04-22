@@ -33,9 +33,9 @@ if __name__ == "__main__":
     username = res1.json().get('username')
 
     with open(filename, 'w', newline='') as csvfile:
-        writer = csv.writer(csvfile)
+        writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
 
         for task in res2.json():
             condition = task.get('completed')
-
-            writer.writerow([ID, username, condition, task.get('title')])
+            title = str(task.get('title'))
+            writer.writerow([ID, username, condition, title])

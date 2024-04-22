@@ -2,9 +2,9 @@
 """
 Gather data
 """
+import csv
 import requests
 import sys
-import csv
 
 if __name__ == "__main__":
     ID = sys.argv[1]

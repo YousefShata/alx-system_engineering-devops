@@ -11,7 +11,7 @@ def number_of_subscribers(subreddit):
     """
 
     url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
- 
+
     headers = {
         "User-Agent": "MyRedditApp/1.0 by MyShata"
     }
@@ -22,5 +22,5 @@ def number_of_subscribers(subreddit):
         data = response.json()
         subscribers = data['data']['subscribers']
         return subscribers
-    
+
     return 0

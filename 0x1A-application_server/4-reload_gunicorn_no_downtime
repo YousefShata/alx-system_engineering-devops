@@ -9,10 +9,8 @@ if [ -z "$GUNICORN_PID" ]; then
 fi
 
 
-echo "Sending HUP signal to Gunicorn master process..."
-kill -HUP $GUNICORN_PID
+kill -HUP "$GUNICORN_PID"
 
 
 sleep 5  # Adjust this time based on your application's request processing time
 
-echo "Reloading Gunicorn completed."

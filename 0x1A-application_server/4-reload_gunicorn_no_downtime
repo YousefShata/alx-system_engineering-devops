@@ -1,16 +1,5 @@
 #!/usr/bin/env bash
 # Get the PID of the master Gunicorn process
-
-GUNICORN_PID=$(pgrep -f "/venv/bin/gunicorn.*api.v1.app:app")
-
-if [ -z "$GUNICORN_PID" ]; then
-    echo "Gunicorn process not found."
-    exit 1
-fi
-
-
-kill -HUP "$GUNICORN_PID"
-
-
-sleep 5  # Adjust this time based on your application's request processing time
-
+master_pid=$(pgrep -f "gunicorn.*--workers")
+# Gracefully restart Gunicorn
+kill -s TERM "$master_pid"
